@@ -76,6 +76,22 @@ function App() {
       </header>
       <div className="content">
         <h3>Все кроссовки</h3>
+        <div className="card-container">
+          <div className="card">
+            <img width={133} height={112} src="/img/sneakers/image5.jpg" alt="sneakers"></img>
+            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+            <div className="CardBottom">
+              <div className="CardPrice">
+                <span>Цена:</span>
+                <b>12 999 руб.</b>
+              </div>
+              <button className="ButtonCard">
+                <img width={11} height={11} src="/img/plus.svg" alt="plus button"></img>
+              </button>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
   );
