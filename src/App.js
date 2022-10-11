@@ -3,7 +3,7 @@ function App() {
     <div className="wrapper">
       <header>
         <div className="header-left">
-          <img className="header-logo" width={50} height={50} src="/img/icon-sneakers.png"></img>
+          <img className="header-logo" width={50} height={50} src="/img/icon-sneakers.png" alt="logo"></img>
           <div className="header-info">
             <h1 className="header-title">Sneakers Shop</h1>
             <p className="header-subtitle">Магазин лучших кроссовок</p>
@@ -75,10 +75,83 @@ function App() {
         </ul>
       </header>
       <div className="content">
-        <h3>Все кроссовки</h3>
+        <div className="title-container">
+          <h3>Все кроссовки</h3>
+          <div className="search-block">
+            <img src="/img/search.svg" alt="search"></img>
+            <input placeholder="Поиск... "></input>
+          </div>
+        </div>
         <div className="card-container">
           <div className="card">
-            <img width={133} height={112} src="/img/sneakers/image5.jpg" alt="sneakers"></img>
+            <div className="like-card">
+              <button className="ButtonCard">
+                  <img width={14} height={14} src="/img/heart.svg" alt="plus button"></img>
+              </button>
+            </div>
+            <div className="img-card">
+              <img width={133} height={112} src="/img/sneakers/image5.jpg" alt="sneakers"></img>
+            </div>
+            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+            <div className="CardBottom">
+              <div className="CardPrice">
+                <span>Цена:</span>
+                <b>12 999 руб.</b>
+              </div>
+              <button className="ButtonCard">
+                <img width={11} height={11} src="/img/plus.svg" alt="plus button"></img>
+              </button>
+            </div>
+          </div>
+          <div className="card">
+            <div className="like-card">
+              <button className="ButtonCard">
+                  <img width={14} height={14} src="/img/heart.svg" alt="plus button"></img>
+              </button>
+            </div>
+            <div className="img-card">
+              <img width={133} height={112} src="/img/sneakers/image4.jpg" alt="sneakers"></img>
+            </div>
+            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+            <div className="CardBottom">
+              <div className="CardPrice">
+                <span>Цена:</span>
+                <b>12 999 руб.</b>
+              </div>
+              <button className="ButtonCard">
+                <img width={11} height={11} src="/img/plus.svg" alt="plus button"></img>
+              </button>
+            </div>
+          </div>
+          <div className="card">
+            <div className="like-card">
+              <button className="ButtonCard">
+                  <img width={14} height={14} src="/img/heart.svg" alt="plus button"></img>
+              </button>
+            </div>
+            <div className="img-card">
+              <img width={133} height={112} src="/img/sneakers/image3.jpg" alt="sneakers"></img>
+            </div>
+            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+            <div className="CardBottom">
+              <div className="CardPrice">
+                <span>Цена:</span>
+                <b>12 999 руб.</b>
+              </div>
+              <button className="ButtonCard">
+                <img width={11} height={11} src="/img/plus.svg" alt="plus button"></img>
+              </button>
+            </div>
+          </div>
+          <div className="card">
+            <div className="like-card">
+              <button className="ButtonCard">
+                  <img width={14} height={14} src="/img/heart.svg" alt="plus button"></img>
+              </button>
+            </div>
+            <div className="img-card">
+              <img width={133} height={112} src="/img/sneakers/image2.jpg" alt="sneakers"></img>
+            </div>
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
             <div className="CardBottom">
               <div className="CardPrice">
