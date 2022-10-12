@@ -1,6 +1,53 @@
 function App() {
   return (
     <div className="wrapper">
+      <div className="drawer-container">
+        <div className="drawer">
+          <h3>Корзина</h3>
+          <div className="CartList">
+            <div className="CartItem">
+              <img className="CartSneakerItem" width={70} height={70} src="/img/sneakers/image5.jpg" alt="sneakers"></img>
+              <div className="ItemDescription">
+                <p>Мужские Кроссовки Nike Air Max 270</p>
+                <b>12 999 руб.</b>
+              </div>
+              <div className="ButtonDelete">
+                <button className="ButtonCardDelete">
+                  <img width={11} height={11} src="/img/plus.svg" alt="plus button"></img>
+                </button>
+              </div>
+            </div>
+            <div className="CartItem">
+              <img className="CartSneakerItem" width={70} height={70} src="/img/sneakers/image5.jpg" alt="sneakers"></img>
+              <div className="ItemDescription">
+                <p>Мужские Кроссовки Nike Air Max 270</p>
+                <b>12 999 руб.</b>
+              </div>
+              <div className="ButtonDelete">
+                <button className="ButtonCardDelete">
+                  <img width={11} height={11} src="/img/plus.svg" alt="plus button"></img>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="PriceList">
+            <ul>
+              <li>
+                <span>Итого:</span>
+                <div></div>
+                <b>21 498 руб.</b>
+              </li>
+              <li>
+                <span>Налог 5%:</span>
+                <div></div>
+                <b>1074 руб.</b>
+              </li>
+            </ul>
+            <button className="GreenButton">Оформить заказ <img src="/img/arrow.svg" alt="arrow"></img></button>
+          </div>
+          
+        </div>
+      </div>
       <header>
         <div className="header-left">
           <img className="header-logo" width={50} height={50} src="/img/icon-sneakers.png" alt="logo"></img>
