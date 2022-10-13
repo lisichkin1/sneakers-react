@@ -3,7 +3,12 @@ function App() {
     <div className="wrapper">
       <div className="drawer-container">
         <div className="drawer">
-          <h3>Корзина</h3>
+          <div className="TitleCart">
+            <h3>Корзина</h3>
+              <button className="ButtonCardDelete">
+                <img width={11} height={11} src="/img/plus.svg" alt="plus button"></img>
+              </button>
+          </div>
           <div className="CartList">
             <div className="CartItem">
               <img className="CartSneakerItem" width={70} height={70} src="/img/sneakers/image5.jpg" alt="sneakers"></img>
@@ -29,6 +34,7 @@ function App() {
                 </button>
               </div>
             </div>
+            
           </div>
           <div className="PriceList">
             <ul>
