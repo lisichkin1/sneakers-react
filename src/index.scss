@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
@@ -8,109 +9,135 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #E7F6FF;
 }
+
 * {
   font-family: 'Inter', system-ui, sans-serif;
 }
-.wrapper{
+
+.wrapper {
   background: #fff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
   border-radius: 20px;
+
   ul {
     margin: 0;
     padding: 0;
   }
+
   li {
     list-style-type: none;
   }
 }
-  header{
-    border-bottom: 1px solid #dbdbdb ;
-      .header-title{
-        text-transform: uppercase;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 24px;
-      }
-      .header-subtitle{
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 17px;
-        color: #9D9D9D;
-      }
-      h1, p{
-        margin: 0;
-      }
-      li{
-        display: flex;
-        align-items: center;
-        margin-right: 20px;
-      }
-    }
-.content{
-    padding: 40px;
-    h3{
-      font-style: normal;
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 39px;
-      color: #000000;
-      margin: 0;
-    }
+
+header {
+  border-bottom: 1px solid #dbdbdb;
+
+  .header-title {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .header-subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17px;
+    color: #9D9D9D;
+  }
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
 }
-.search-block{
-  border: 1px solid #dbdbdb ;
+
+.content {
+  padding: 40px;
+
+  h3 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #000000;
+    margin: 0;
+  }
+}
+
+.search-block {
+  border: 1px solid #dbdbdb;
   display: flex;
   border-radius: 10px;
   padding: 0 15px;
-  input{
+
+  input {
     border: 0;
     padding: 10px;
     font-size: 16px;
-    outline:none;
+    outline: none;
   }
 }
-.card{
+
+.card {
   border: 1px solid #dbdbdb;
-  
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out ;
-  h5{
+
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  h5 {
     margin: 14px 0 14px 0;
     font-size: 14px;
     font-weight: 400;
   }
-  span{
+
+  span {
     text-transform: uppercase;
     opacity: 0.5;
     font-size: 13px;
   }
-  b{
+
+  b {
     font-size: 13px;
   }
-  &:hover{
+
+  &:hover {
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.07);
     transform: translateY(-5px);
   }
 }
 
-.CardPrice{
-  span{
+.likeCard {
+  position: absolute;
+  cursor: pointer;
+}
+
+.CardPrice {
+  span {
     font-size: 12px;
     font-weight: 500;
     line-height: 13px;
     text-transform: uppercase;
     opacity: 0.5;
   }
-  b{
+
+  b {
     font-size: 14px;
     line-height: 17px;
-    
+
   }
 }
-.ButtonCard{
-  height: 32px;
-  width: 32px;
+
+.ButtonCard {
+  height: 33px;
+  width: 33px;
   background: #FFFFFF;
   border: 1px solid #dbdbdb;
   border-radius: 8px;
@@ -121,41 +148,36 @@ body {
   justify-content: center;
 }
 
-.img-card{
+.img-card {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 // drawer
 
-.drawer-container{
-  position: absolute;
-  top: 0;
-  left: 0;
+.drawer-container {
   background-color: rgba(0, 0, 0, 0.1);
-  z-index: 8;
-  width: 100%;
-  height: 100%;
 }
-.drawer{
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  width: 420px;
-  height: 100%;
-  right: 0;
+
+.drawer {
   background: #FFFFFF;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  box-sizing: border-box;
 }
-.ButtonDelete{
-  img{
+
+.ButtonDelete {
+  img {
     rotate: (45deg);
   }
 }
-.CartItem{
+.CartList { 
+  flex: 1;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.CartItem {
   display: flex;
   align-items: center;
   border: 1px solid #dbdbdb;
@@ -163,17 +185,19 @@ body {
   padding: 15px;
   box-sizing: border-box;
   column-gap: 20px;
-  p{
+
+  p {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 5px;
   }
-  b{
+
+  b {
     font-size: 14px;
   }
 }
 
-.ButtonCardDelete{
+.ButtonCardDelete {
   height: 32px;
   width: 32px;
   background: #FFFFFF;
@@ -186,47 +210,43 @@ body {
   justify-content: center;
   transition: opacity 0.1s ease-in-out;
   opacity: 0.5;
-  &:hover{
+
+  &:hover {
     opacity: 1;
   }
-  
-}
-.CartList{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  row-gap: 30px;
-  flex: 1;
-  overflow: auto;
-  margin-bottom: 20px;
+
 }
 
-.PriceList{
-  ul{
+.PriceList {
+  ul {
     padding: 0;
-  div{
-    flex: 1;
-    height: 1px;
-    border-bottom: 1px dashed #DFDFDF;
+
+    div {
+      flex: 1;
+      height: 1px;
+      border-bottom: 1px dashed #DFDFDF;
+      position: relative;
+      top: -4px;
+      margin: 0 15px;
+    }
+
+    li {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+  }
+
+  .GreenButton {
     position: relative;
-    top: -4px;
-    margin: 0 15px;
-  }
-  li{
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 20px;
-  }
-  }
-  .GreenButton{
-    position: relative;
-    &:hover{
-      img{
+
+    &:hover {
+      img {
         transform: translateX(5px);
       }
     }
-    img{
+
+    img {
       position: absolute;
       right: 40px;
       top: 20px;
@@ -234,31 +254,43 @@ body {
     }
   }
 }
-.GreenButton{
-    height: 55px;
-    width: 100%;
-    background: #9DD558;
-    border-radius: 18px;
-    border: 0;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    font-weight: 500;
-    color: #FFFFFF;
-    transition: background 0.1s ease-in-out;
-    &:hover{
-      background: lighten(#9DD558, 5%);
-    }
-    &:active{
-      background: darken(#9DD558, 10%);
-    } 
+
+.GreenButton {
+  height: 55px;
+  width: 100%;
+  background: #9DD558;
+  border-radius: 18px;
+  border: 0;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  font-weight: 500;
+  color: #FFFFFF;
+  transition: background 0.1s ease-in-out;
+
+  &:hover {
+    background: lighten(#9DD558, 5%);
+  }
+
+  &:active {
+    background: darken(#9DD558, 10%);
+  }
 }
-.TitleCart{
+
+.TitleCart {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  img{
+  h3{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 39px;
+    color: #000000;
+    margin: 0;
+  }
+  img {
     rotate: (45deg);
   }
-  
+
 }
