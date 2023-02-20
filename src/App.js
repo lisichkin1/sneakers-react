@@ -1,7 +1,9 @@
+import Card from "./components/Card";
+
 function App() {
   return (
     <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
-      <div style={{  }} className="drawer-container absolute top-0 left-0 z-10 w-full h-full">
+      <div style={{ display:'none'}} className="drawer-container absolute top-0 left-0 z-10 w-full h-full">
         <div className="drawer flex flex-col absolute w-[420px] h-full right-0 p-8 gap-y-8">
           <div className="TitleCart">
             <h3>Корзина</h3>
@@ -170,204 +172,14 @@ function App() {
           </div>
         </div>
         <div className="flex justify-start flex-wrap gap-x-[101px] gap-y-[40px]">
-          <div className="card w-56 p-8 rounded-[40px]">
-            <div className="likeCard">
-              <button className="ButtonCard">
-                <img
-                  width={16}
-                  height={16}
-                  src="/img/heart.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-            <img
-              width={133}
-              height={112}
-              src="/img/sneakers/image3.jpg"
-              alt="sneakers"
-            ></img>
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="flex justify-between items-center">
-              <div className="flex flex-col">
-                <span>Цена:</span>
-                <b>12 999 руб.</b>
-              </div>
-              <button className="ButtonCard">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-          </div>
-          <div className="card w-56 p-8 rounded-[40px]">
-            <div className="likeCard">
-              <button className="ButtonCard">
-                <img
-                  width={16}
-                  height={16}
-                  src="/img/heart.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-            <img
-              width={133}
-              height={112}
-              src="/img/sneakers/image2.jpg"
-              alt="sneakers"
-            ></img>
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="flex justify-between items-center">
-              <div className="flex flex-col">
-                <span>Цена:</span>
-                <b>12 999 руб.</b>
-              </div>
-              <button className="ButtonCard">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-          </div>
-          <div className="card w-56 p-8 rounded-[40px]">
-            <div className="likeCard">
-              <button className="ButtonCard">
-                <img
-                  width={16}
-                  height={16}
-                  src="/img/heart.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-            <img
-              width={133}
-              height={112}
-              src="/img/sneakers/image5.jpg"
-              alt="sneakers"
-            ></img>
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="flex justify-between items-center">
-              <div className="flex flex-col">
-                <span>Цена:</span>
-                <b>12 999 руб.</b>
-              </div>
-              <button className="ButtonCard">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-          </div>
-          <div className="card w-56 p-8 rounded-[40px]">
-            <div className="likeCard">
-              <button className="ButtonCard">
-                <img
-                  width={16}
-                  height={16}
-                  src="/img/heart.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-            <img
-              width={133}
-              height={112}
-              src="/img/sneakers/image4.jpg"
-              alt="sneakers"
-            ></img>
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="flex justify-between items-center">
-              <div className="flex flex-col">
-                <span>Цена:</span>
-                <b>12 999 руб.</b>
-              </div>
-              <button className="ButtonCard">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-          </div>
-          <div className="card w-56 p-8 rounded-[40px]">
-            <div className="likeCard">
-              <button className="ButtonCard">
-                <img
-                  width={16}
-                  height={16}
-                  src="/img/heart.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-            <img
-              width={133}
-              height={112}
-              src="/img/sneakers/image3.jpg"
-              alt="sneakers"
-            ></img>
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="flex justify-between items-center">
-              <div className="flex flex-col">
-                <span>Цена:</span>
-                <b>12 999 руб.</b>
-              </div>
-              <button className="ButtonCard">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-          </div>
-          <div className="card w-56 p-8 rounded-[40px]">
-            <div className="likeCard">
-              <button className="ButtonCard">
-                <img
-                  width={16}
-                  height={16}
-                  src="/img/heart.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-            <img
-              width={133}
-              height={112}
-              src="/img/sneakers/image2.jpg"
-              alt="sneakers"
-            ></img>
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="flex justify-between items-center">
-              <div className="flex flex-col">
-                <span>Цена:</span>
-                <b>12 999 руб.</b>
-              </div>
-              <button className="ButtonCard">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-          </div>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
         </div>
       </div>
     </div>
