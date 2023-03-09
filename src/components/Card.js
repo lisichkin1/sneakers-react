@@ -1,6 +1,9 @@
 import React from "react";
 
-function Card() {
+function Card(props) {
+  const onClickCard = () => {
+    alert(props.price)
+  }
   return (
     <div className="card w-56 p-8 rounded-[40px]">
       <div className="likeCard">
@@ -10,28 +13,28 @@ function Card() {
             height={16}
             src="/img/heart.svg"
             alt="plus button"
-          ></img>
+          />
         </button>
       </div>
       <img
         width={133}
         height={112}
-        src="/img/sneakers/image3.jpg"
+        src={props.imageURL}
         alt="sneakers"
-      ></img>
-      <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+      />
+      <h5>{props.title}</h5>
       <div className="flex justify-between items-center">
         <div className="flex flex-col">
           <span>Цена:</span>
-          <b>12 999 руб.</b>
+          <b>{props.price}</b>
         </div>
-        <button className="ButtonCard">
+        <button className="ButtonCard" onClick={onClickCard}>
           <img
             width={11}
             height={11}
             src="/img/plus.svg"
             alt="plus button"
-          ></img>
+          />
         </button>
       </div>
     </div>
