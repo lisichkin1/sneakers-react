@@ -1,11 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from './Card.module.scss'
 console.log(styles)
 function Card(props) {
+  const [isAdded, setIsAdded] = useState(false)
+
+  const onClickPlus = () =>{
+    setIsAdded(!isAdded)
+  }
+  
   return (
     <div className={styles.card + " w-56 p-8 rounded-[40px]"}>
       <div className={styles.likeCard}>
-        <button className={styles.ButtonCard}>
+        <button className={styles.ButtonCard} onClick={props.onClickLike}>
           <img
             width={16}
             height={16}
@@ -23,15 +29,15 @@ function Card(props) {
       />
       <h5>{props.title}</h5>
       <div className="flex justify-between items-center">
-        <div className={styles.CardPrice +"flex flex-col"}>
+        <div className={styles.CardPrice +" flex flex-col"}>
           <span>Цена:</span>
           <b>{props.price}</b>
         </div>
-        <button className={styles.ButtonCard} onClick={props.onClick}>
+        <button className={isAdded ? styles.ButtonCard + ' ' + styles.ButtonCardPlus : styles.ButtonCard} onClick={onClickPlus}>
           <img
             width={11}
             height={11}
-            src="/img/plus.svg"
+            src={isAdded ? 'img/enter-cart.svg' : '/img/plus.svg'}
             alt="plus button"
           />
         </button>

@@ -84,6 +84,8 @@ function App() {
             title = {obj.name}
             price = {obj.price}
             imageURL = {obj.imageURL}
+            onClickPlus={()=>console.log('Нажали плюс')}
+            onClickLike = {()=>console.log('Добавили в избранное')}
             />
           ))}
         </div>
