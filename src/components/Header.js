@@ -1,6 +1,7 @@
 import React from "react";
 
-function Header() {
+function Header(props) {
+  console.log(props)
   return (
     <header className="flex justify-between items-center p-10">
       <div className="flex items-center">
@@ -16,8 +17,8 @@ function Header() {
           <p className="header-subtitle">Магазин лучших кроссовок</p>
         </div>
       </div>
-      <ul className="flex items-center">
-        <li>
+      <ul className="flex items-center cursor-pointer">
+        <li onClick={props.onClickCart}>
           <svg
             className="mr-5"
             width="20"

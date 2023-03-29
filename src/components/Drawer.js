@@ -1,15 +1,14 @@
 import React from "react";
 
-function Drawer() {
+function Drawer(props) {
   return (
     <div
-      style={{ display: "none" }}
       className="drawer-container absolute top-0 left-0 z-10 w-full h-full"
     >
       <div className="drawer flex flex-col absolute w-[420px] h-full right-0 p-8 gap-y-8">
         <div className="TitleCart">
           <h3>Корзина</h3>
-          <button className="ButtonCardDelete">
+          <button className="ButtonCardDelete" onClick={props.onCloseCart}>
             <img
               width={11}
               height={11}
