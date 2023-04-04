@@ -1,6 +1,6 @@
 import React from "react";
 
-function Drawer(props) {
+function Drawer({onCloseCart, sneakersItems = []}) {
   return (
     <div
       className="drawer-container absolute top-0 left-0 z-10 w-full h-full"
@@ -8,7 +8,7 @@ function Drawer(props) {
       <div className="drawer flex flex-col absolute w-[420px] h-full right-0 p-8 gap-y-8">
         <div className="TitleCart">
           <h3>Корзина</h3>
-          <button className="ButtonCardDelete" onClick={props.onCloseCart}>
+          <button className="ButtonCardDelete" onClick={onCloseCart}>
             <img
               width={11}
               height={11}
@@ -18,52 +18,31 @@ function Drawer(props) {
           </button>
         </div>
         <div className="CartList flex flex-col items-center justify-start gap-y-8 ">
-          <div className="CartItem">
-            <img
-              className="CartSneakerItem"
-              width={70}
-              height={70}
-              src="/img/sneakers/image5.jpg"
-              alt="sneakers"
-            ></img>
-            <div className="ItemDescription">
-              <p>Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
-            </div>
-            <div className="ButtonDelete">
-              <button className="ButtonCardDelete">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-          </div>
-          <div className="CartItem">
-            <img
-              className="CartSneakerItem"
-              width={70}
-              height={70}
-              src="/img/sneakers/image5.jpg"
-              alt="sneakers"
-            ></img>
-            <div className="ItemDescription">
-              <p>Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
-            </div>
-            <div className="ButtonDelete">
-              <button className="ButtonCardDelete">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="plus button"
-                ></img>
-              </button>
-            </div>
-          </div>
+          {sneakersItems.map((obj)=>(
+             <div className="CartItem">
+             <img
+               className="CartSneakerItem"
+               width={70}
+               height={70}
+               src="/img/sneakers/image5.jpg"
+               alt="sneakers"
+             ></img>
+             <div className="ItemDescription">
+               <p>Мужские Кроссовки Nike Air Max 270</p>
+               <b>12 999 руб.</b>
+             </div>
+             <div className="ButtonDelete">
+               <button className="ButtonCardDelete">
+                 <img
+                   width={11}
+                   height={11}
+                   src="/img/plus.svg"
+                   alt="plus button"
+                 ></img>
+               </button>
+             </div>
+           </div>
+          ))}
         </div>
         <div className="PriceList">
           <ul>
