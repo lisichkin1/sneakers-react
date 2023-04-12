@@ -7,6 +7,7 @@ function App() {
   const [sneakersItems, setSneakersItems] = useState([])
   const [cartSneakersItems, setCartSetSneakersItems] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
+  const [seacrValue, setSearchValue] = useState('')
   useEffect(() => {
     fetch('https://6423141677e7062b3e2a7b39.mockapi.io/items')
     .then((res) =>{
@@ -20,6 +21,11 @@ function App() {
   const onAddToCart = (item) => {
     setCartSetSneakersItems(prev => [...prev, item])
   }
+
+  const onEditSearchInput = (event) =>{
+    console.log(event.target.value);
+    setSearchValue(event.target.value);
+  }
   
   return (
     <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
@@ -27,15 +33,28 @@ function App() {
       <Header onClickCart = {()=> setCartOpen(true)}/>
       <div className="content">
         <div className="flex items-center mb-10 justify-between">
-          <h3>Все кроссовки</h3>
+          <h3>{seacrValue ? `Поиск по: ${seacrValue}`: 'Все кроссовки'}</h3>
           <div className="search-block">
             <img src="/img/search.svg" alt="search"></img>
-            <input placeholder="Поиск... "></input>
+            {
+            seacrValue && (<button className="ButtonCardDelete clear" onClick={() => setSearchValue('')}>
+            <img
+              width={11}
+              height={11}
+              src="/img/plus.svg"
+              alt="plus button"
+            ></img>
+            </button>)
+            }
+            <input onChange={onEditSearchInput} value={seacrValue} placeholder="Поиск... "></input>
           </div>
         </div>
         <div className="flex justify-start flex-wrap gap-x-[101px] gap-y-[40px]">
-          {sneakersItems.map((obj) => (
+          {sneakersItems
+          .filter((obj)=>obj.name.toUpperCase().includes(seacrValue.toUpperCase()))
+          .map((obj) => (
             <Card 
+            key = {obj.id}
             title = {obj.name}
             price = {obj.price}
             imageURL = {obj.imageURL}
