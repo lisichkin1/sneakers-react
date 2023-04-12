@@ -1,7 +1,7 @@
 import React from "react";
 
 function Header(props) {
-  console.log(props)
+
   return (
     <header className="flex justify-between items-center p-10">
       <div className="flex items-center">

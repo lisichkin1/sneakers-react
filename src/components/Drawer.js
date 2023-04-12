@@ -1,6 +1,7 @@
 import React from "react";
 
 function Drawer({onCloseCart, sneakersItems = []}) {
+  console.log(sneakersItems[1])
   return (
     <div
       className="drawer-container absolute top-0 left-0 z-10 w-full h-full"
@@ -24,12 +25,12 @@ function Drawer({onCloseCart, sneakersItems = []}) {
                className="CartSneakerItem"
                width={70}
                height={70}
-               src="/img/sneakers/image5.jpg"
+               src={obj.imageURL}
                alt="sneakers"
              ></img>
              <div className="ItemDescription">
-               <p>Мужские Кроссовки Nike Air Max 270</p>
-               <b>12 999 руб.</b>
+               <p>{obj.title}</p>
+               <b>{obj.price} руб.</b>
              </div>
              <div className="ButtonDelete">
                <button className="ButtonCardDelete">

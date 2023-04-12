@@ -16,6 +16,11 @@ function App() {
       setSneakersItems(json)
     });
   }, [])
+
+  const onAddToCart = (item) => {
+    setCartSetSneakersItems(prev => [...prev, item])
+  }
+  
   return (
     <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
       {cartOpen && <Drawer sneakersItems = {cartSneakersItems} onCloseCart = {()=> setCartOpen(false)}/>}
@@ -34,8 +39,8 @@ function App() {
             title = {obj.name}
             price = {obj.price}
             imageURL = {obj.imageURL}
-            onClickPlus={()=>console.log('Нажали плюс')}
-            onClickLike = {()=>console.log('Добавили в избранное')}
+            onClickPlusAdd={(item)=>onAddToCart(item)}
+            onClickLikeAdd = {()=>console.log('Добавили в избранное')}
             />
           ))}
         </div>
