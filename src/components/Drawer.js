@@ -1,7 +1,7 @@
 import React from "react";
 
 function Drawer({onCloseCart, sneakersItems = []}) {
-  console.log(sneakersItems[1])
+
   return (
     <div
       className="drawer-container absolute top-0 left-0 z-10 w-full h-full"
