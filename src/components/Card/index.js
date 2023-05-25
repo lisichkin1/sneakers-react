@@ -2,19 +2,24 @@ import React, {useState} from "react";
 import styles from './Card.module.scss'
 function Card({onClickLikeAdd, imageURL, title, price, onClickPlusAdd}) {
   const [isAdded, setIsAdded] = useState(false)
-
+  const [isFavourite, setIsFavourite] = useState(false)
   const onClickPlus = () =>{
     onClickPlusAdd({title, price, imageURL})
     setIsAdded(!isAdded)
   }
+
+  const onClickFavourite = () => {
+    onClickLikeAdd({title, price, imageURL})
+    setIsFavourite(!isFavourite)
+  }
   return (
     <div className={styles.card + " w-56 p-8 rounded-[40px]"}>
       <div className={styles.likeCard}>
-        <button className={styles.ButtonCard} onClick={onClickLikeAdd}>
+        <button className={styles.ButtonCard} onClick={onClickFavourite}>
           <img
             width={16}
             height={16}
-            src="/img/heart.svg"
+            src={isFavourite ? '/img/red-heart.svg' : '/img/heart.svg' }
             alt="plus button"
           />
         </button>

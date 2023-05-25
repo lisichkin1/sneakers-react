@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [sneakersItems, setSneakersItems] = useState([])
   const [cartSneakersItems, setCartSetSneakersItems] = useState([])
+  const [Favourites, setFavourites] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
   const [seacrValue, setSearchValue] = useState('')
   useEffect(() => {
@@ -24,13 +25,17 @@ function App() {
   }
 
   const onDeleteItem = (id) => {
-    //axios.delete(`https://6423141677e7062b3e2a7b39.mockapi.io/cart${id}`);
+    axios.delete(`https://6423141677e7062b3e2a7b39.mockapi.io/cart/${id}`);
     setCartSetSneakersItems(prev => prev.filter(item => item.id !== id))
-    console.log(id)
   }
+
   const onEditSearchInput = (event) =>{
-    console.log(event.target.value);
     setSearchValue(event.target.value);
+  }
+
+  const onAddToFavourites = (item) => {
+    axios.post('https://646f20f609ff19b12086a2ff.mockapi.io/Favourites', item);
+    setFavourites(prev => [...prev, item])
   }
   
   return (
@@ -65,7 +70,7 @@ function App() {
             price = {obj.price}
             imageURL = {obj.imageURL}
             onClickPlusAdd={(item)=>onAddToCart(item)}
-            onClickLikeAdd = {()=>console.log('Добавили в избранное')}
+            onClickLikeAdd = {(item)=>onAddToFavourites(item)}
             />
           ))}
         </div>

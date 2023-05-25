@@ -80,57 +80,11 @@ function Drawer({onCloseCart, sneakersItems = [], onDelete}) {
           <p className="font-normal text-base leading-6 text-center text-black opacity-40">
             Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.
           </p>
-          <button className="GreenButton ReturnButton">
+          <button className="GreenButton ReturnButton" onClick={onCloseCart}>
             Вернуться назад<img src="/img/arrow.svg" alt="arrow"/>
           </button>
         </div>
         )}
-  {/*
-         <div className="CartList flex flex-col items-center justify-start gap-y-8 ">
-          {sneakersItems.map((obj)=>(
-             <div className="CartItem">
-             <img
-               className="CartSneakerItem"
-               width={70}
-               height={70}
-               src={obj.imageURL}
-               alt="sneakers"
-             ></img>
-             <div className="ItemDescription">
-               <p>{obj.title}</p>
-               <b>{obj.price} руб.</b>
-             </div>
-             <div className="ButtonDelete">
-               <button className="ButtonCardDelete" onClick={()=>onDelete(obj.id)}>
-                 <img
-                   width={11}
-                   height={11}
-                   src="/img/plus.svg"
-                   alt="plus button"
-                 ></img>
-               </button>
-             </div>
-           </div>
-          ))}
-        </div> 
-        <div className="PriceList">
-          <ul>
-            <li>
-              <span>Итого:</span>
-              <div></div>
-              <b>21 498 руб.</b>
-            </li>
-            <li>
-              <span>Налог 5%:</span>
-              <div></div>
-              <b>1074 руб.</b>
-            </li>
-          </ul>
-          <button className="GreenButton">
-            Оформить заказ <img src="/img/arrow.svg" alt="arrow"></img>
-          </button>
-        </div>
-      */}
       </div>
     </div>
   );
