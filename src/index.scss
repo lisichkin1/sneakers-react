@@ -217,7 +217,24 @@ header {
     background: darken(#9DD558, 10%);
   }
 }
+.ReturnButton{
+  position: relative;
 
+  &:hover {
+    img {
+      
+      transform: rotate(180deg) translateX(5px);
+    }
+  }
+
+  img {
+    transform: rotate(180deg);
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    transition: transform 0.2s ease-in-out;
+  }  
+}
 .TitleCart {
   display: flex;
   align-items: center;

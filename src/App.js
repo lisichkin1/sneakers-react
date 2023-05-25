@@ -13,12 +13,21 @@ function App() {
     axios.get('https://6423141677e7062b3e2a7b39.mockapi.io/items').then(res => {
       setSneakersItems(res.data)
     })
+    axios.get('https://6423141677e7062b3e2a7b39.mockapi.io/cart').then(res => {
+      setCartSetSneakersItems(res.data)
+    })
   }, [])
 
   const onAddToCart = (item) => {
+    axios.post('https://6423141677e7062b3e2a7b39.mockapi.io/cart', item);
     setCartSetSneakersItems(prev => [...prev, item])
   }
 
+  const onDeleteItem = (id) => {
+    //axios.delete(`https://6423141677e7062b3e2a7b39.mockapi.io/cart${id}`);
+    setCartSetSneakersItems(prev => prev.filter(item => item.id !== id))
+    console.log(id)
+  }
   const onEditSearchInput = (event) =>{
     console.log(event.target.value);
     setSearchValue(event.target.value);
@@ -26,7 +35,7 @@ function App() {
   
   return (
     <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
-      {cartOpen && <Drawer sneakersItems = {cartSneakersItems} onCloseCart = {()=> setCartOpen(false)}/>}
+      {cartOpen && <Drawer sneakersItems = {cartSneakersItems} onCloseCart = {()=> setCartOpen(false)} onDelete = {onDeleteItem}/>}
       <Header onClickCart = {()=> setCartOpen(true)}/>
       <div className="content">
         <div className="flex items-center mb-10 justify-between">
