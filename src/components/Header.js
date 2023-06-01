@@ -1,9 +1,10 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Header(props) {
 
   return (
     <header className="flex justify-between items-center p-10">
+      <Link to="/">
       <div className="flex items-center">
         <img
           className="mx-5"
@@ -17,6 +18,7 @@ function Header(props) {
           <p className="header-subtitle">Магазин лучших кроссовок</p>
         </div>
       </div>
+      </Link>
       <ul className="flex items-center cursor-pointer">
         <li onClick={props.onClickCart}>
           <svg
@@ -52,6 +54,7 @@ function Header(props) {
           <span>1205 руб.</span>
         </li>
         <li>
+        <Link to="/favorites">
           <svg
             width="22"
             height="19"
@@ -64,6 +67,7 @@ function Header(props) {
               fill="#9B9B9B"
             />
           </svg>
+        </Link>
         </li>
         <li>
           <svg
