@@ -1,6 +1,7 @@
 import Card from "../components/Card"
 
 function Home ({
+  cartSneakersItems,
   sneakersItems,
   seacrValue,
   setSearchValue,
@@ -35,6 +36,7 @@ function Home ({
             key = {obj.id}
             onClickPlusAdd={(item)=>onAddToCart(item)}
             onClickLikeAdd = {(item)=>onAddToFavourites(item)}
+            added = {cartSneakersItems.some(item => Number(item.id) === Number(obj.id))}
             {...obj}
             />
           ))}
