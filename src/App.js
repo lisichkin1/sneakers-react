@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom";
 
-import Home from './Pages/Home';
+import Home from "./Pages/Home";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 import axios from "axios";
@@ -8,67 +8,89 @@ import Favorites from "./Pages/Favorites";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [sneakersItems, setSneakersItems] = useState([])
-  const [cartSneakersItems, setCartSetSneakersItems] = useState([])
-  const [Favourites, setFavourites] = useState([])
-  const [cartOpen, setCartOpen] = useState(false)
-  const [seacrValue, setSearchValue] = useState('')
+  const [sneakersItems, setSneakersItems] = useState([]);
+  const [cartSneakersItems, setCartSetSneakersItems] = useState([]);
+  const [Favourites, setFavourites] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [seacrValue, setSearchValue] = useState("");
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    async function fetchData(){
-      const itemsResponse = await axios.get('https://6423141677e7062b3e2a7b39.mockapi.io/items')
-      const cartResponse = await axios.get('https://6423141677e7062b3e2a7b39.mockapi.io/cart')
-      const favoritesRespanse = await axios.get('https://646f20f609ff19b12086a2ff.mockapi.io/Favourites')
-
-      setCartSetSneakersItems(cartResponse.data)
-      setFavourites(favoritesRespanse.data)
-      setSneakersItems(itemsResponse.data)
+    async function fetchData() {
+      setIsLoading(true)
+      const itemsResponse = await axios.get(
+        "https://6423141677e7062b3e2a7b39.mockapi.io/items"
+      );
+      const cartResponse = await axios.get(
+        "https://6423141677e7062b3e2a7b39.mockapi.io/cart"
+      );
+      const favoritesRespanse = await axios.get(
+        "https://646f20f609ff19b12086a2ff.mockapi.io/Favourites"
+      );
+      setIsLoading(false)
+      setCartSetSneakersItems(cartResponse.data);
+      setFavourites(favoritesRespanse.data);
+      setSneakersItems(itemsResponse.data);
     }
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
   const onAddToCart = (item) => {
-    console.log(item)
-    if(cartSneakersItems.find((obj)=>Number(obj.id) === Number(item.id))){
-      axios.delete(`https://6423141677e7062b3e2a7b39.mockapi.io/cart/${item.id}`);
-      setCartSetSneakersItems(prev => prev.filter(cartItem => Number(cartItem.id) !== Number(item.id)))
+    console.log(item);
+    if (cartSneakersItems.find((obj) => Number(obj.id) === Number(item.id))) {
+      axios.delete(
+        `https://6423141677e7062b3e2a7b39.mockapi.io/cart/${item.id}`
+      );
+      setCartSetSneakersItems((prev) =>
+        prev.filter((cartItem) => Number(cartItem.id) !== Number(item.id))
+      );
+    } else {
+      axios.post("https://6423141677e7062b3e2a7b39.mockapi.io/cart", item);
+      setCartSetSneakersItems((prev) => [...prev, item]);
     }
-    else{
-      axios.post('https://6423141677e7062b3e2a7b39.mockapi.io/cart', item);
-      setCartSetSneakersItems(prev => [...prev, item])
-    }
-  }
+  };
 
   const onDeleteItem = (id) => {
     axios.delete(`https://6423141677e7062b3e2a7b39.mockapi.io/cart/${id}`);
-    setCartSetSneakersItems(prev => prev.filter(item => item.id !== id))
-  }
+    setCartSetSneakersItems((prev) => prev.filter((item) => item.id !== id));
+  };
 
-  const onEditSearchInput = (event) =>{
+  const onEditSearchInput = (event) => {
     setSearchValue(event.target.value);
-  }
+  };
 
   const onAddToFavourites = async (item) => {
     try {
-      if(Favourites.find((favItem) => favItem.id === item.id)){
-        axios.delete(`https://646f20f609ff19b12086a2ff.mockapi.io/Favourites/${item.id}`)
-        setFavourites(prev => prev.filter(obj => obj.id !== item.id))
-      }
-      else{
-        const {data} = await axios.post('https://646f20f609ff19b12086a2ff.mockapi.io/Favourites', item);
-        setFavourites(prev => [...prev, data])
+      if (Favourites.find((favItem) => favItem.id === item.id)) {
+        axios.delete(
+          `https://646f20f609ff19b12086a2ff.mockapi.io/Favourites/${item.id}`
+        );
+        setFavourites((prev) => prev.filter((obj) => obj.id !== item.id));
+      } else {
+        const { data } = await axios.post(
+          "https://646f20f609ff19b12086a2ff.mockapi.io/Favourites",
+          item
+        );
+        setFavourites((prev) => [...prev, data]);
       }
     } catch (error) {
-      alert('Не удалось добавить в избранное')
-      
+      alert("Не удалось добавить в избранное");
     }
-  }
+  };
   return (
     <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
-      {cartOpen && <Drawer sneakersItems = {cartSneakersItems} onCloseCart = {()=> setCartOpen(false)} onDelete = {onDeleteItem}/>}
-      
-        <Header onClickCart = {()=> setCartOpen(true)}/>
-        <Routes>
-          <Route 
-              path="/" element={  <Home
+      {cartOpen && (
+        <Drawer
+          sneakersItems={cartSneakersItems}
+          onCloseCart={() => setCartOpen(false)}
+          onDelete={onDeleteItem}
+        />
+      )}
+
+      <Header onClickCart={() => setCartOpen(true)} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
               cartSneakersItems={cartSneakersItems}
               sneakersItems={sneakersItems}
               seacrValue={seacrValue}
@@ -76,14 +98,20 @@ function App() {
               onEditSearchInput={onEditSearchInput}
               onAddToFavourites={onAddToFavourites}
               onAddToCart={onAddToCart}
-            />}/>
-            <Route 
-              path="/favorites" element={  <Favorites 
+              isLoading = {isLoading}
+            />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <Favorites
               sneakersItems={Favourites}
               onAddToFavourites={onAddToFavourites}
-            />}/>
-        </Routes>
-    
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }
