@@ -9,3 +9,4 @@
 - Tailwind CSS
 - Axios
 - React Router
+- React Skeleton
