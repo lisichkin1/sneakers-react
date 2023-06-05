@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-
 import Home from "./Pages/Home";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 import axios from "axios";
 import Favorites from "./Pages/Favorites";
 import { useEffect, useState } from "react";
+import AppContext from "./context";
 
 function App() {
   const [sneakersItems, setSneakersItems] = useState([]);
@@ -59,7 +59,7 @@ function App() {
 
   const onAddToFavourites = async (item) => {
     try {
-      if (Favourites.find((favItem) => favItem.id === item.id)) {
+      if (Favourites.find((favItem) => Number(favItem.id) === Number(item.id))) {
         axios.delete(
           `https://646f20f609ff19b12086a2ff.mockapi.io/Favourites/${item.id}`
         );
@@ -75,8 +75,14 @@ function App() {
       alert("Не удалось добавить в избранное");
     }
   };
+  const isAddedItem = (id) => {
+    return cartSneakersItems.some(
+      (item) => Number(item.id) === Number(id)
+    )
+  }
   return (
-    <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
+    <AppContext.Provider value={{sneakersItems, cartSneakersItems, Favourites, isAddedItem, onAddToFavourites, setCartOpen}}>
+      <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
       {cartOpen && (
         <Drawer
           sneakersItems={cartSneakersItems}
@@ -105,14 +111,12 @@ function App() {
         <Route
           path="/favorites"
           element={
-            <Favorites
-              sneakersItems={Favourites}
-              onAddToFavourites={onAddToFavourites}
-            />
+            <Favorites/>
           }
         />
       </Routes>
     </div>
+    </AppContext.Provider>
   );
 }
 
