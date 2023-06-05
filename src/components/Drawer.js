@@ -1,4 +1,5 @@
 import React from "react";
+import Info from "./Info";
 
 function Drawer({ onCloseCart, sneakersItems = [], onDelete }) {
   return (
@@ -65,27 +66,11 @@ function Drawer({ onCloseCart, sneakersItems = [], onDelete }) {
               </button>
             </div>
           </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center m-auto gap-y-4">
-            <img
-              className="ddd"
-              width={120}
-              height={120}
-              src="/img/box.png"
-              alt="box logo"
-            />
-            <h3 className="text-2xl leading-6 text-center text-black font-bold">
-              Корзина пустая
-            </h3>
-            <p className="font-normal text-base leading-6 text-center text-black opacity-40">
-              Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.
-            </p>
-            <button className="GreenButton ReturnButton" onClick={onCloseCart}>
-              Вернуться назад
-              <img src="/img/arrow.svg" alt="arrow" />
-            </button>
-          </div>
-        )}
+        ) : (<Info 
+                title="Корзина пустая" 
+                description="Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ." 
+                image="/img/box.png"
+              />)}
       </div>
     </div>
   );
