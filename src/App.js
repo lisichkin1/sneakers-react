@@ -85,8 +85,10 @@ function App() {
   useEffect(() => {
     if (isOverflowHidden) {
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = "16px";
     } else {
       document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "0px";
     }
 
     // Очистка эффекта при размонтировании компонента
