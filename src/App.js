@@ -34,7 +34,6 @@ function App() {
     fetchData();
   }, []);
   const onAddToCart = (item) => {
-    console.log(item);
     if (cartSneakersItems.find((obj) => Number(obj.id) === Number(item.id))) {
       axios.delete(
         `https://6423141677e7062b3e2a7b39.mockapi.io/cart/${item.id}`
@@ -81,7 +80,7 @@ function App() {
     )
   }
   return (
-    <AppContext.Provider value={{sneakersItems, cartSneakersItems, Favourites, isAddedItem, onAddToFavourites, setCartOpen}}>
+    <AppContext.Provider value={{sneakersItems, cartSneakersItems, Favourites, isAddedItem, onAddToFavourites, setCartOpen, setCartSetSneakersItems}}>
       <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
       {cartOpen && (
         <Drawer
