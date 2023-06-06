@@ -6,6 +6,7 @@ import axios from "axios";
 import Favorites from "./Pages/Favorites";
 import { useEffect, useState } from "react";
 import AppContext from "./context";
+import Orders from "./Pages/Orders";
 
 function App() {
   const [sneakersItems, setSneakersItems] = useState([]);
@@ -79,18 +80,40 @@ function App() {
       (item) => Number(item.id) === Number(id)
     )
   }
+  const [isOverflowHidden, setIsOverflowHidden] = useState(false);
+
+  useEffect(() => {
+    if (isOverflowHidden) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Очистка эффекта при размонтировании компонента
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOverflowHidden]);
+
+ 
   return (
-    <AppContext.Provider value={{sneakersItems, cartSneakersItems, Favourites, isAddedItem, onAddToFavourites, setCartOpen, setCartSetSneakersItems}}>
-      <div className="wrapper mx-auto mt-12 max-w-7xl box-border outline-none">
+    <AppContext.Provider value={{sneakersItems, cartSneakersItems, Favourites, isAddedItem, onAddToFavourites, setCartOpen, setCartSetSneakersItems, onAddToCart, isLoading}}>
+      <div className={ "wrapper mx-auto mt-12 max-w-7xl box-border outline-none"}>
       {cartOpen && (
         <Drawer
           sneakersItems={cartSneakersItems}
-          onCloseCart={() => setCartOpen(false)}
+          onCloseCart={() => {
+            setIsOverflowHidden(false);
+            setCartOpen(false);
+          }}
           onDelete={onDeleteItem}
         />
       )}
 
-      <Header onClickCart={() => setCartOpen(true)} />
+      <Header  onClickCart={() => {
+        setIsOverflowHidden(true);
+        setCartOpen(true);
+      }} />
       <Routes>
         <Route
           path="/"
@@ -111,6 +134,12 @@ function App() {
           path="/favorites"
           element={
             <Favorites/>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <Orders/>
           }
         />
       </Routes>
