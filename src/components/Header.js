@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import AppContext from "../context";
 function Header(props) {
-
+  const {cartSneakersItems} = useContext(AppContext)
+  const totalPrice = cartSneakersItems.reduce((sum, obj) => obj.price + sum, 0)
   return (
     <header className="flex justify-between items-center p-10">
       <Link to="/">
@@ -51,7 +53,7 @@ function Header(props) {
               strokeLinejoin="round"
             />
           </svg>
-          <span>1205 руб.</span>
+          <span>{totalPrice} руб.</span>
         </li>
         <li>
         <Link to="/favorites">
