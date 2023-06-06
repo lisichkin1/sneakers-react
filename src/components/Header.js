@@ -71,6 +71,7 @@ function Header(props) {
           </svg>
         </Link>
         </li>
+        <Link to="/orders">
         <li>
           <svg
             width="20"
@@ -87,6 +88,7 @@ function Header(props) {
             />
           </svg>
         </li>
+        </Link>
       </ul>
     </header>
   );
