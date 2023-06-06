@@ -1,17 +1,15 @@
 import React, { useContext, useState } from "react";
 import Info from "./Info";
-import { click } from "@testing-library/user-event/dist/click";
-import AppContext from "../context";
 import axios from "axios";
+import { useCart } from "../hooks/useCart";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 function Drawer({ onCloseCart, sneakersItems = [], onDelete }) {
-  const {cartSneakersItems, setCartSetSneakersItems} = useContext(AppContext)
+  const {cartSneakersItems, setCartSetSneakersItems, totalPrice} = useCart()
   const [orderComplete, setOrderComplete] = useState(false)
   const [orderId, setOrderId] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
-  const totalPrice = cartSneakersItems.reduce((sum, obj) => obj.price + sum, 0)
 
   const onClickOrder = async () => {
     try {
