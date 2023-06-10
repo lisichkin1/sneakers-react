@@ -8,11 +8,15 @@ function Orders() {
   const { isLoading, onAddToFavourites, onAddToCart } = useContext(AppContext);
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(
-        "https://646f20f609ff19b12086a2ff.mockapi.io/orders"
-      );
-      setOrders(data);
-      console.log(orders);
+      try {
+        const { data } = await axios.get(
+          "https://646f20f609ff19b12086a2ff.mockapi.io/orders"
+        );
+        setOrders(data);
+        console.log(orders);
+      } catch (error) {
+        alert('ошибка')
+      }
     })();
   }, []);
   return (
@@ -26,7 +30,6 @@ function Orders() {
             {obj.items.map((ArrObj) => (
               <Card
                 key={ArrObj.id}
-                onClickPlusAdd={(item) => onAddToCart(item)}
                 onClickLikeAdd={(item) => onAddToFavourites(item)}
                 loading={isLoading}
                 {...ArrObj}

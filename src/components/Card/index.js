@@ -65,7 +65,7 @@ function Card({
               <span>Цена:</span>
               <b>{price}</b>
             </div>
-            <button
+            {onClickPlusAdd && <button
               className={
                 isAddedItem(id)
                   ? styles.ButtonCard + " " + styles.ButtonCardPlus
@@ -79,7 +79,7 @@ function Card({
                 src={isAddedItem(id) ? "img/enter-cart.svg" : "/img/plus.svg"}
                 alt="plus button"
               />
-            </button>
+            </button>}
           </div>
         </>
       )}
