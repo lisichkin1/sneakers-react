@@ -3,7 +3,7 @@ import Card from "../components/Card";
 import AppContext from "../context";
 
 function Favorites() {
-  const {Favourites, onAddToFavourites} = useContext(AppContext);
+  const {Favourites, onAddToFavourites, onAddToCart} = useContext(AppContext);
   return (
     <div className="content">
       <h3 className="mb-10">Мои закладки</h3>
@@ -12,7 +12,8 @@ function Favorites() {
           <Card
             key={obj.id}
             favorited={true}
-            onClickLikeAdd={onAddToFavourites}
+            onClickPlusAdd={(item) => onAddToCart(item)}
+            onClickLikeAdd={(item) => onAddToFavourites(item)}
             {...obj}
           />
         ))}
