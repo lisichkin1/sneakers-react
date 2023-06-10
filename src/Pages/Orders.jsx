@@ -30,7 +30,6 @@ function Orders() {
             {obj.items.map((ArrObj) => (
               <Card
                 key={ArrObj.id}
-                onClickLikeAdd={(item) => onAddToFavourites(item)}
                 loading={isLoading}
                 {...ArrObj}
               />

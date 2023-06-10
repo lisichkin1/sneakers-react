@@ -42,7 +42,7 @@ function Card({
         </ContentLoader>
       ) : (
         <>
-          <div className={styles.likeCard}>
+          {onClickPlusAdd && <div className={styles.likeCard}>
             <button className={styles.ButtonCard} onClick={onClickFavourite}>
               <img
                 width={16}
@@ -51,7 +51,7 @@ function Card({
                 alt="plus button"
               />
             </button>
-          </div>
+          </div>}
           <img
             className={styles.img_card}
             width={133}
