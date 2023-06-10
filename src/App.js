@@ -135,7 +135,10 @@ function App() {
         <Route
           path="/favorites"
           element={
-            <Favorites/>
+            <Favorites
+              onAddToFavourites={onAddToFavourites}
+              onAddToCart={onAddToCart}
+            />
           }
         />
         <Route
